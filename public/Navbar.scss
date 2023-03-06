@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Shantell+Sans:wght@300&display=swap');
+$font-1: 'Fredoka One', cursive;
+$font-2: 'Shantell Sans', cursive;
+
+nav {
+    ul {
+        display: flex;
+        justify-content: space-between;
+        li {
+            list-style: none;
+            color: white;
+
+            h1 {
+                font-family: $font-1;
+                font-size: 30px;
+            }
+            i {
+                font-size: 25px;
+                position: fixed;
+                margin-top: 32px;
+                margin-left: -50px;
+                cursor: pointer;
+            }
+        }
+    }
+}
