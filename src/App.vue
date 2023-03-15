@@ -1,50 +1,23 @@
 <script setup>
   import Navbar from './components/Navbar.vue';
-  import { ref, onMounted, computed } from "vue";
-  /*
-  const text = ref('')
-  const todos = []
-  function addTodo() {
-    todos.push({
-      id: Date.now(),
-      text: text.value,
-      isCompleted: false
-    })
-    text.value = ''
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }
-  onMounted(() => {
-    
-    todos.push(localStorage.getItem('todos'))
-    console.log(todos)
-    console.log('App mounted!')
-    if (localStorage.getItem('todos')) {
-      todos.value = JSON.parse(localStorage.getItem('todos'))
-    }
-    /*
-    for (let index = 0; index < todos.length; index++) {
-      todoItem.value = todos.value[index];
-    }
-  })*/
-
+  import { ref, onMounted, computed, reactive } from "vue";
   const todoText = ref('')
-
+  const deneme = ref([])
   const todo = {
     id: String,
     text: String,
     isCompleted: Boolean
   }
+  const todoKey = "_vue_todos"
   const todoArray = ref([])
 
-  const completdTodos = computed(() => {
-    todoArray.value.filter((todo) => todo.isCompleted === true)
+  const completedTodos = computed(() => {
+    deneme.value = todoArray.value.filter((todo) => todo.isCompleted === true).length
   })
   
-  const unCompletdTodos = computed(() => {
+  const unCompletedTodos = computed(() => {
     todoArray.value.filter((todo) => todo.isCompleted === false)
   })
-
-  const todoKey = "_vue_todos"
 
   function updateLocalStorage() {
     localStorage.setItem(todoKey, JSON.stringify(todoArray.value))
@@ -61,9 +34,9 @@
       }
     }
     updateLocalStorage()
+    console.log(todoArray.value.filter((todo) => todo.isCompleted === true).length);
+    
   })
-
-  
 
   function addTodo() {
     todoArray.value = [
@@ -77,6 +50,9 @@
     updateLocalStorage()
     todoText.value = ''
   }
+  
+
+  
 
 
 </script>
@@ -84,14 +60,17 @@
 <template>
   <Navbar />
   <div class="main">
-    <progress max="1" value="0"></progress>
+    <progress
+        :max="todoArray.length"
+        :value="todoArray.filter((todo) => todo.isCompleted === true).length"
+    ></progress>
     <div>Clear completed todos</div>
     <hr>
     <div class="form">
-      <div>
+      <form>
         <input type="text" name="" id="todoText" v-model="todoText">
-        <input type="submit" @click="addTodo()" value="Add" :disabled="todoText === ''">
-      </div>
+        <input type="submit" @click="addTodo()" value="Add" :disabled="todoText === ''" >
+      </form>
     </div>
   </div>
   
