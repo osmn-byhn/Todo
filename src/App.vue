@@ -2,14 +2,13 @@
   import Navbar from './components/Navbar.vue';
   import { ref, onMounted, computed, reactive } from "vue";
   const todoText = ref('')
+  const todoKey = "_vue_todos"
+  const todoArray = ref([])
   const todo = {
     id: String,
     text: String,
     isCompleted: Boolean
   }
-  const todoKey = "_vue_todos"
-  const todoArray = ref([])
-
   const completedTodos = computed(() => {
     deneme.value = todoArray.value.filter((todo) => todo.isCompleted === true).length
   })

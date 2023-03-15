@@ -76,3 +76,57 @@ $font-1: 'Shantell Sans', cursive;
     font-style: italic;
     
 }
+
+@media screen and (max-width:1026px){
+    .main {
+        form {
+            .todo-text {
+                width: 80%;
+                
+            }
+            .button {
+                width: 15%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:556px){
+    .main {
+        width: 95%;
+        margin-left: 2.5%;
+        form {
+            .todo-text {
+                width: 75%;
+                
+            }
+            .button {
+                width: 20%;
+            }
+        }
+        .buttons {
+            ul {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+    .todo-list {
+        width: 100%;
+        margin-left: -10%;
+        ul {
+            display: flex;
+            li {
+                list-style: none;
+                color: white;
+                font-family: $font-1;
+                font-size: 24px;
+                input {
+                    height: 25px;
+                    width: 25px;
+                    padding-right: 15%;
+                }
+            }
+        }
+    }
+}
