@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Shantell+Sans:wght@300&display=swap');
+$font-1: 'Shantell Sans', cursive;
+.main {
+    width: 80%;
+    margin-left: 10%;
+    progress{
+        width: 100%;
+    }
+    form {
+        width: 100%;
+        margin-top: 1vh;
+        .todo-text {
+            width: 89%;
+            border: 3px solid #b34cb3;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+            font-family: $font-1;
+            font-size: 19px;
+            outline: none;
+            padding-left: 1%;
+        }
+        .button {
+            width: 8%;
+            border: 3px solid #b34cb3;
+            border-radius: 5px;
+            background-color: #b34cb3;
+            color: white;
+            font-family: $font-1;
+            font-size: 19px;
+            outline: none;
+            margin-left: 1%;
+        }
+        
+    }
+    .buttons {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            li {
+                color: white;
+                list-style: none;
+                font-family: $font-1;
+                .delete {
+                    cursor: pointer;
+                }
+                .text {
+                    margin-right: 35px;
+                }
+            }
+        }
+    }
+}
+
+.todo-list {
+    width: 80%;
+    margin-left: 6%;
+    ul {
+        display: flex;
+        li {
+            list-style: none;
+            color: white;
+            font-family: $font-1;
+            font-size: 24px;
+            input {
+                height: 25px;
+                width: 25px;
+                padding-right: 15%;
+            }
+        }
+    }
+}
+
+.completed {
+    text-decoration: line-through  3px;
+    font-style: italic;
+    
+}
